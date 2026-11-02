@@ -1,66 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Dental Clinic Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web application for running a dental clinic: patient files, appointment booking, medical records, staff, services and billing, all in one place.
 
-## About Laravel
+Built with **Laravel 12**, **Bootstrap 5** and **MySQL/MariaDB**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Dashboard](docs/screenshots/02-dashboard.png)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
 
-## Learning Laravel
+| Module | What it does |
+|---|---|
+| **Dashboard** | Totals for patients, doctors, appointments, services and invoices, plus the latest patients and doctors. |
+| **Patients** | Patient files with contact details, date of birth, blood type, allergies, medical history and current medications. Each patient page also lists their medical records. |
+| **Appointments** | Book a patient with a doctor for a service. Filter by date, doctor or status (pending, confirmed, completed, cancelled, no show). |
+| **Medical Records** | A diagnosis, clinical notes and recommendations, written by a doctor and optionally linked to an appointment (one record per appointment). Searchable by patient or diagnosis. |
+| **Invoices** | Invoices with line items per service, discounts and taxes. Status can be pending, paid, overdue or cancelled. |
+| **Services** | The treatment catalogue, with codes and prices. Services can be switched on or off. |
+| **Taxes** | Percentage or fixed taxes, attached to services. |
+| **Staff** | Doctors (specialty, experience, profile), receptionists and user accounts, with roles and an active/inactive switch. |
+| **Authentication** | Log in, password reset and profile management. |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### User roles
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Admin**: manages the whole clinic.
+- **Doctor**: can be booked for appointments and writes medical records.
+- **Receptionist**: front-desk staff.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> **Note:** roles are stored and displayed, but pages are not yet restricted by role. Any logged-in user can open every module.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Screenshots
 
-### Premium Partners
+| | |
+|---|---|
+| **Login**<br>![Login](docs/screenshots/01-login.png) | **Dashboard**<br>![Dashboard](docs/screenshots/02-dashboard.png) |
+| **Patients**<br>![Patients](docs/screenshots/03-patients.png) | **Patient profile**<br>![Patient profile](docs/screenshots/04-patient-profile.png) |
+| **Appointments**<br>![Appointments](docs/screenshots/05-appointments.png) | **Appointment details**<br>![Appointment details](docs/screenshots/06-appointment-details.png) |
+| **Book an appointment**<br>![Book appointment](docs/screenshots/07-book-appointment.png) | **Medical records**<br>![Medical records](docs/screenshots/08-medical-records.png) |
+| **Medical record**<br>![Medical record](docs/screenshots/09-medical-record.png) | **Invoices**<br>![Invoices](docs/screenshots/10-invoices.png) |
+| **Invoice**<br>![Invoice](docs/screenshots/11-invoice.png) | **Services**<br>![Services](docs/screenshots/12-services.png) |
+| **Doctors**<br>![Doctors](docs/screenshots/13-doctors.png) | **Staff menu**<br>![Staff menu](docs/screenshots/14-staff-menu.png) |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+All names and data in the screenshots are made-up demo data.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Tech stack
 
-## Code of Conduct
+- **Backend:** PHP 8.2+, Laravel 12
+- **Frontend:** Blade templates, Bootstrap 5.3, Bootstrap Icons (loaded from a CDN, so no build step is needed for the clinic pages)
+- **Database:** MySQL or MariaDB
+- **Auth:** Laravel Breeze
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Getting started
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Requirements
 
-## License
+- PHP 8.2 or newer
+- Composer
+- MySQL or MariaDB (for example, through XAMPP)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Installation
+
+```bash
+git clone https://github.com/miamen16/dental-clinic.git
+cd dental-clinic
+
+composer install
+cp .env.example .env
+php artisan key:generate
+```
+
+Create an empty database (for example `dental_clinic`), then set the connection in `.env`:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=dental_clinic
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Create the tables and load the demo data:
+
+```bash
+php artisan migrate --seed
+php artisan serve
+```
+
+Open http://127.0.0.1:8000.
+
+### Demo accounts
+
+All demo accounts use the password **`password`**.
+
+| Role | Email |
+|---|---|
+| Admin | `admin@clinic.test` |
+| Doctor | `sara.hassan@clinic.test` (and 4 more doctors) |
+| Receptionist | `reception@clinic.test` |
+
+The seeders also add 8 services, 3 taxes and 10 patients. You can run `php artisan db:seed` again safely; it won't create duplicates.
+
+> Change or remove these accounts before putting the system online.
+
+---
+
+## Project structure
+
+```
+app/
+  Http/Controllers/     One folder per module (Patients, Appointments, MedicalRecords, Invoices, ...)
+  Http/Requests/        Form validation, one folder per module
+  Models/               Eloquent models (Patient, Appointment, MedicalRecord, Invoice, Service, Tax, User, ...)
+database/
+  migrations/           Database schema
+  seeders/              Demo data (users, services, taxes, patients)
+resources/views/
+  layouts/clinic.blade.php   Main layout and navigation bar
+  <module>/                  index, create, edit and show pages for each module
+routes/web.php          All application routes
+docs/screenshots/       Screenshots used in this README
+```
+
+---
+
+## Running tests
+
+```bash
+php artisan test
+```
+
+> `phpunit.xml` doesn't set its own database, so tests use the database in your `.env`. Point them at a separate test database before running anything that resets data.
